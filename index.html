@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>OMGThemes!</title>
+    <link rel="stylesheet" href="omgthemes.css">
+  </head>
+  <body>
+    <footer>To contribute a theme to <b>OMGThemes!</b> simply <a href='https://github.com/mxcl/omgthemes'>fork</a>, push and wait five minutes (we scan the <em>entire</em> fork network).</footer>
+  </body>
+  <script type="text/template" class="theme">
+    <pre class="<%- fork %>_<%- name %>">
+      <code>
+        <i class='comment'>// <%- name %></i>
+        <i class='comment'>// <a class='inherit' href='<%- url %>'><%- url %></a></i>
+
+        <i class='preprocessor'>#import</i> <i class='string'>&lt;UIKit/UIKit.h&gt;</i>
+
+        <i class='keyword'>@interface</i> <%- name %>Theme : <i class=class>NSObject</i> {
+            <i class='class'>NSString</i> *ivar;
+        }
+
+        - (<i class='class'>NSString</i> *)method:(<i class='keyword'>id</i>)parameter;
+
+        <i class='keyword'>@property</i> (<i class='keyword'>nonatomic</i>) <i class='class'>NSString</i> *property;
+        <i class='keyword'>@end</i>
+
+
+        <i class='keyword'>@implementation</i> <%- name %>Theme
+
+        - (<i class='class'>NSString</i> *)method:(<i class='keyword'>id</i>)parameter {
+            <i class='ivar'>ivar</i> = parameter;
+            <i class='keyword'>for</i> (<i class='keyword'>int</i> x = <i class=number>0</i>; x &lt; <i class='number'>123</i>; ++x) {
+                <i class='function'>NSLog</i>(<i class='string'>@"%@"</i>, foo[x]);
+            }
+        }
+
+        <i class='keyword'>@end</i>
+      </code>
+    </pre>
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+  <script>
+    var templater = _.template($("script.theme").html());
+
+    $.get('themes.json').done(function(themes){
+      _(themes).each(function(theme){
+        var name = theme.fork+'_'+theme.name;
+        var css = name+'.css';
+
+        theme.url = 'https://github.com/' + theme.fork + '/omgthemes';
+
+        $('<link>').appendTo($('head')).attr({type: 'text/css', rel: 'stylesheet'}).attr('href', css);
+        $('body').append(templater(theme));
+      });
+    });
+  </script>
+</html>
