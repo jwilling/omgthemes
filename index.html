@@ -53,7 +53,7 @@
         var name = theme.fork+'_'+theme.name;
         var css = name+'.css';
 
-        theme.url = 'https://github.com/' + theme.fork + '/omgthemes';
+        theme.url = 'https://github.com/' + theme.fork + '/omgthemes/blob/master/' + encodeURI(theme.raw);
         theme.raw = 'https://raw.github.com/' + theme.fork + '/omgthemes/master/' + encodeURI(theme.raw);
 
         $('<link>').appendTo($('head')).attr({type: 'text/css', rel: 'stylesheet'}).attr('href', css);
