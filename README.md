@@ -2,6 +2,8 @@ The site scans the fork tree of this repository for Xcode themes contributions.
 
 So, fork to add new themes.
 
+Currently, we only scan one level deep, so make sure you fork mxcl’s repository. Of course, it would be neat to show forks of forks and thus show how people have potentially modified themes and improved them, so scanning deeper is something we’d like to do.
+
 Currently the site regenerates every five minutes.
 
 The site works by converting themes to CSS (for display at the site).
