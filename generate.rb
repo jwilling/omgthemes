@@ -62,9 +62,12 @@ json = Dir['*'].map do |user|
     dst = "#{out}/#{fn}.dvtcolortheme"
     cp theme, dst
     system "ruby ../parse-dvtcolortheme.rb \"#{dst}\" > \"#{out}/#{fn}.css\""
+
+    theme =~ %r{#{user}/(.*)}
     {
       fork: user,
-      name: name
+      name: name,
+      raw:  $1
     }
   end
 end.flatten

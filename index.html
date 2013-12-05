@@ -35,6 +35,10 @@
         }
 
         <i class='keyword'>@end</i>
+
+        <i class='comment'>// mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes \
+           && curl "<%- raw %>" \
+           > "~/Library/Developer/Xcode/UserData/FontAndColorThemes/<%- name %>.dvtcolortheme"</i>
       </code>
     </pre>
   </script>
@@ -50,6 +54,7 @@
         var css = name+'.css';
 
         theme.url = 'https://github.com/' + theme.fork + '/omgthemes';
+        theme.raw = 'https://raw.github.com/' + theme.fork + '/omgthemes/master/' + theme.raw;
 
         $('<link>').appendTo($('head')).attr({type: 'text/css', rel: 'stylesheet'}).attr('href', css);
         $('body').append(templater(theme));
