@@ -6,7 +6,7 @@ Currently the site regenerates every five minutes.
 
 The site works by converting themes to CSS (for display at the site).
 
-We will recursively look for themes, this is useful in case you already have a repository that contains themes. You can fork this repository and then force push your existing repository’s git history to your fork. After you can then delete your existing repository and rename your fork of this repository to what your existing repostitory is called so in effect nothing has changed bar linking your repo to this one so our site can find it.
+We will recursively look for themes (`.dvtcolortheme` files), this is useful in case you already have a repository that contains themes. You can fork this repository and then force push your existing repository’s git history to your fork. After you can then delete your existing repository and rename your fork of this repository to what your existing repostitory is called so in effect nothing has changed bar linking your repo to this one so our site can find it.
 
 TODO
 ====
